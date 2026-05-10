@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Alfi & Isna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #14213d;
+            --gold: #d4af37;
+            --cream: #f5e6be;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--navy);
+            color: var(--cream);
+            text-align: center;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(20, 33, 61, 0.85), rgba(20, 33, 61, 0.85)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid var(--gold);
+            padding: 20px;
+        }
+
+        .hero-content {
+            border: 2px solid var(--gold);
+            padding: 40px 20px;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .sub-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 5px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.5rem;
+            color: var(--gold);
+            margin: 10px 0;
+        }
+
+        .date-hero {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        .quotes {
+            font-style: italic;
+            font-size: 0.95rem;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* Detail Section */
+        .details {
+            padding: 100px 20px;
+            background-color: var(--navy);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bismillah {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-family: serif;
+        }
+
+        .opening-text {
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .mempelai {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .person h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .ampersand {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin: 10px 0;
+        }
+
+        /* Info Cards */
+        .event-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .card {
+            border: 1px solid var(--gold);
+            padding: 30px;
+            min-width: 280px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+        }
+
+        /* Location */
+        .location {
+            margin-top: 80px;
+            padding: 40px;
+            border: 1px dashed var(--gold);
+        }
+
+        .location h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background-color: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--cream);
+            letter-spacing: 2px;
+        }
+
+        /* RSVP Section */
+        .rsvp {
+            padding: 80px 20px;
+            background-color: var(--navy);
+            border-top: 2px solid var(--gold);
+        }
+
+        .rsvp h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 40px;
+        }
+
+        .rsvp-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+            color: var(--cream);
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: var(--cream);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group select option {
+            background-color: var(--navy);
+            color: var(--cream);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 3px;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--cream);
+            letter-spacing: 1px;
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            background-color: rgba(212, 175, 55, 0.5);
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 3px;
+            display: none;
+            text-align: center;
+        }
+
+        .form-message.success {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: #F44336;
+            display: block;
+        }
+
+        footer {
+            padding: 40px;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            .names { font-size: 3rem; }
+            .hero-content { padding: 20px 10px; }
+            .card { width: 100%; }
+            .rsvp-form { padding: 20px; }
+            .rsvp h2 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="sub-title">Undangan Pernikahan</h2>
+            <h1 class="names">Alfi & Isna</h1>
+            <p class="date-hero">11 . 06 . 2026</p>
+            <div class="quotes">
+                <p>"Cinta sejati bukanlah tentang menemukan seseorang yang sempurna, tetapi tentang menemukan seseorang yang mau bersama-sama menghadapi ketidaksempurnaan."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="details">
+        <div class="container">
+            <h1 class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</h1>
+            <p class="opening-text">Dengan penuh rasa syukur kepada Allah SWT dan penuh sukacita, kami mohon doa restu pada acara pernikahan kami:</p>
+            
+            <div class="mempelai">
+                <div class="person">
+                    <h2>Imam Alfi Sahri</h2>
+                    <p>Putra dari Bapak Sunardi & Ibu Rakini (Almh)</p>
+                </div>
+                
+                <div class="ampersand">&</div>
+                
+                <div class="person">
+                    <h2>Nur Isnaini Nafi</h2>
+                    <p>Putri dari Bapak Kanapi & Ibu Masudah</p>
+                </div>
+            </div>
+
+            <div class="event-info">
+                <div class="card">
+                    <h3>Akad Nikah</h3>
+                    <p>Kamis, 11 Juni 2026</p>
+                    <p>Pukul 08.00 WIB</p>
+                </div>
+                <div class="card">
+                    <h3>Resepsi</h3>
+                    <p>Kamis, 11 Juni 2026</p>
+                    <p>Pukul 09.00 WIB - Selesai</p>
+                </div>
+            </div>
+
+            <div class="location">
+                <h3>Lokasi Acara</h3>
+                <p><strong>Kediaman Mempelai Wanita</strong></p>
+                <p>Ds. Tluwuk Rt 02/Rw 02 Wedarijaksa Pati</p>
+                <a href="https://www.google.com/maps/place/CUCIAN+GLOWING/@-6.6805606,111.1168555,17z/data=!3m1!4b1!4m6!3m5!1s0x2e772b41ea289a87:0xb98dba690d674b2d!8m2!3d-6.6805606!4d111.1168555!16s%2Fg%2F11qg31q_64!5m1!1e1!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn">LIHAT LOKASI MAPS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp">
+        <div class="container">
+            <h2>RSVP</h2>
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="fullName">Nama Lengkap *</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Masukkan nama lengkap Anda">
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">Konfirmasi Kehadiran *</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="">-- Pilih --</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Hadir</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="numPeople">Jumlah Orang *</label>
+                    <input type="number" id="numPeople" name="numPeople" min="1" max="10" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Pesan (Opsional)</label>
+                    <textarea id="message" name="message" placeholder="Tulis pesan doa atau ucapan untuk kami..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Konfirmasi</button>
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("Undangan Digital Alfi & Isna telah dimuat.");
+            
+            // Animasi sederhana saat scroll
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = "1";
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.card, .person, .location, .rsvp-form').forEach(el => {
+                el.style.opacity = "0";
+                el.style.transform = "translateY(20px)";
+                el.style.transition = "all 0.8s ease-out";
+                observer.observe(el);
+            });
+
+            // RSVP Form Handling
+            const rsvpForm = document.getElementById('rsvpForm');
+            if (rsvpForm) {
+                rsvpForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const formData = {
+                        fullName: document.getElementById('fullName').value,
+                        attendance: document.getElementById('attendance').value,
+                        numPeople: document.getElementById('numPeople').value,
+                        message: document.getElementById('message').value,
+                        timestamp: new Date().toLocaleString('id-ID')
+                    };
+
+                    const submitBtn = rsvpForm.querySelector('.btn-submit');
+                    const messageDiv = document.getElementById('formMessage');
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Mengirim...';
+
+                    try {
+                        // Ganti dengan URL Google Apps Script Anda
+                        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx0rre0Z0zExUYpI7IIovXvMfUSyNjLv_B7dGWnMFs5pRPnWfOe9eFIxs0rOjewTAr0/exec';
+                        
+                        if (SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                            throw new Error('URL Google Apps Script belum dikonfigurasi. Silakan hubungi pembuat undangan.');
+                        }
+
+                        const response = await fetch(SCRIPT_URL, {
+                            method: 'POST',
+                            body: JSON.stringify(formData),
+                            mode: 'no-cors'
+                        });
+
+                        messageDiv.textContent = 'Terima kasih! Konfirmasi Anda telah diterima.';
+                        messageDiv.className = 'form-message success';
+                        rsvpForm.reset();
+                        
+                        // Sembunyikan pesan setelah 5 detik
+                        setTimeout(() => {
+                            messageDiv.className = 'form-message';
+                        }, 5000);
+
+                    } catch (error) {
+                        messageDiv.textContent = 'Terjadi kesalahan: ' + error.message;
+                        messageDiv.className = 'form-message error';
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Konfirmasi';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
