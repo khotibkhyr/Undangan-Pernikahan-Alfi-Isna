@@ -293,6 +293,133 @@
             display: block;
         }
 
+        /* Wedding Gift Section */
+        .gift {
+            padding: 80px 20px;
+            background-color: var(--navy);
+            border-top: 2px solid var(--gold);
+        }
+
+        .gift h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+
+        .gift-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gift-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .btn-gift {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gift:hover {
+            background-color: var(--cream);
+            letter-spacing: 2px;
+            transform: translateY(-2px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: var(--navy);
+            margin: auto;
+            padding: 40px;
+            border: 2px solid var(--gold);
+            width: 90%;
+            max-width: 500px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            text-align: center;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translate(-50%, -60%);
+                opacity: 0;
+            }
+            to {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .rekening-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        .close-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: var(--gold);
+            color: var(--navy);
+            border: none;
+            border-radius: 2px;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: var(--cream);
+        }
+
         footer {
             padding: 40px;
             font-size: 0.9rem;
@@ -362,6 +489,32 @@
         </div>
     </section>
 
+    <!-- Wedding Gift Section -->
+    <section class="gift">
+        <div class="container">
+            <h2>Wedding Gift</h2>
+            <div class="gift-content">
+                <p class="gift-text">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi gift</p>
+                <button class="btn-gift" id="btnKirimGift">Kirim Gift</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gift Modal -->
+    <div id="giftModal" class="modal">
+        <div class="modal-content">
+            <h3>Detail Rekening</h3>
+            <p>Silakan transfer ke rekening berikut:</p>
+            <div class="rekening-info">
+                5957 0100 2764 509<br>
+                BRI<br>
+                a/n NUR ISNAINI NAFI
+            </div>
+            <p style="font-size: 0.95rem; margin: 15px 0;">Terima kasih atas dukungan dan doa Anda 🙏</p>
+            <button class="close-btn" id="closeModal">Tutup</button>
+        </div>
+    </div>
+
     <!-- RSVP Section -->
     <section class="rsvp">
         <div class="container">
@@ -419,11 +572,31 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.card, .person, .location, .rsvp-form').forEach(el => {
+            document.querySelectorAll('.card, .person, .location, .rsvp-form, .gift-content').forEach(el => {
                 el.style.opacity = "0";
                 el.style.transform = "translateY(20px)";
                 el.style.transition = "all 0.8s ease-out";
                 observer.observe(el);
+            });
+
+            // Gift Modal Handler
+            const giftModal = document.getElementById('giftModal');
+            const btnKirimGift = document.getElementById('btnKirimGift');
+            const closeModal = document.getElementById('closeModal');
+
+            btnKirimGift.addEventListener('click', () => {
+                giftModal.style.display = 'block';
+            });
+
+            closeModal.addEventListener('click', () => {
+                giftModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', (event) => {
+                if (event.target === giftModal) {
+                    giftModal.style.display = 'none';
+                }
             });
 
             // RSVP Form Handling
